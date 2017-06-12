@@ -6,10 +6,19 @@ class App extends Component {
   state = {
     bck: 'lightgrey',
   };
+
+  handleColor = (color) => {
+    this.setState({
+      bck: color,
+    });
+  };
+  
   render() {
     return (
       <Grid className="grid-layout">
-        <ButtonList>
+        <ButtonList
+          handleClick={this.handleColor}
+        >
         </ ButtonList>
         <Display
           bckColor={this.state.bck}
@@ -21,14 +30,31 @@ class App extends Component {
 }
 
 class ButtonList extends Component {
+  handleClick = (e) => {
+    this.props.handleClick(e.target.name);
+  }
+
   render() {
+    const colors = [
+      'yellow','red','blue','grey','green',
+      'pink','orange'
+    ]
+
+    const buttons = colors.map((item,index) => (
+        <button
+          className="btn-layout"
+          key={index}
+          style={{backgroundColor:item}}
+          name={item}
+          onClick={this.handleClick}
+        >
+        </button>
+      )
+    )
+
     return (
       <ButtonToolbar className="btn-list-layout">
-        <button 
-          className="btn-layout"
-        >
-        test
-        </button>
+        {buttons}
       </ ButtonToolbar>
     );
   }
