@@ -1,3 +1,15 @@
 .grid-layout {
   margin: 50px;
 }
+
+.btn-list-layout {
+  width: 50%;
+  float: left;
+}
+
+.btn-layout {
+  width:100px;
+  height: 100px;
+  margin: 30px;
+  display:inline-block;
+}
