@@ -13,4 +13,7 @@
   margin: 30px;
   display:inline-block;
   font-size: x-large;
+  border-radius: 25%;
+  border: none;
+  vertical-align: top;
 }

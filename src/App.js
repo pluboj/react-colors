@@ -60,7 +60,6 @@ class ButtonList extends Component {
   }
 
   render() {
-
     const buttons = this.state.colors.map((item,index) => (
         <button
           className="btn-layout"
@@ -69,7 +68,7 @@ class ButtonList extends Component {
           name={item}
           onClick={item === 'closed' ? this.addColor : this.handleClick}
         >
-        {item === 'closed' ? '+' : ''}
+        {item === 'closed' ? '+' : this.white_space}
         </button>
       )
     )
