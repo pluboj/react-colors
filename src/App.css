@@ -8,8 +8,9 @@
 }
 
 .btn-layout {
-  width:100px;
-  height: 100px;
+  width:80px;
+  height: 80px;
   margin: 30px;
   display:inline-block;
+  font-size: x-large;
 }

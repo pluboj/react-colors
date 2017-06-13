@@ -34,20 +34,42 @@ class ButtonList extends Component {
     this.props.handleClick(e.target.name);
   }
 
-  render() {
-    const colors = [
-      'yellow','red','blue','grey','green',
-      'pink','orange'
-    ]
+  addColor = (e) => {
+    const colors = this.state.colors;
+    const clr_index = colors.indexOf('closed');
+    colors.splice(clr_index,0,this.generateColor());
 
-    const buttons = colors.map((item,index) => (
+    this.setState({
+      colors: colors,
+    })
+  }
+
+  generateColor = () => {
+    const hue = 'rgb(' + this.getRandom() + ',' + this.getRandom() + ',' + this.getRandom() + ')';
+    return hue;
+  }
+
+  getRandom = () => (
+    Math.floor(Math.random() * 256)
+  ) 
+
+  state = {
+    colors: [
+      'closed',
+    ]
+  }
+
+  render() {
+
+    const buttons = this.state.colors.map((item,index) => (
         <button
           className="btn-layout"
           key={index}
-          style={{backgroundColor:item}}
+          style={{backgroundColor:item === 'closed' ? 'lightgrey' : item}}
           name={item}
-          onClick={this.handleClick}
+          onClick={item === 'closed' ? this.addColor : this.handleClick}
         >
+        {item === 'closed' ? '+' : ''}
         </button>
       )
     )
@@ -68,6 +90,7 @@ class Display extends Component {
       float: 'right',
       height: 400,
       border: '1px solid grey',
+      marginTop: '30px',
     }
 
     return (
