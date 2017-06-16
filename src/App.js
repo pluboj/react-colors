@@ -4,7 +4,7 @@ import { Grid, ButtonToolbar } from 'react-bootstrap';
 
 class App extends Component {
   state = {
-    bck: 'lightgrey',
+    bck: 'rgb(220,220,220)',
   };
 
   handleColor = (color) => {
@@ -84,16 +84,45 @@ class ButtonList extends Component {
 class Display extends Component {
   render() {
     const displayStyle = {
-      backgroundColor: this.props.bckColor,
+      backgroundColor: '#FFF',
       width: '50%',
       float: 'right',
-      height: 400,
+      height: 500,
       border: '1px solid grey',
       marginTop: '30px',
     }
-
     return (
-      <div style={displayStyle}></div>
+      <div style={displayStyle}>
+        <DisplayColor bckColor={this.props.bckColor}/>
+        <Label bckColor={this.props.bckColor}/>
+      </div>
+    );
+  }
+}
+
+class DisplayColor extends Component {
+  render() {
+   const displayColorStyle = {
+     height: 400,
+     backgroundColor: this.props.bckColor,
+   }
+    return (
+      <div style={displayColorStyle}></div>
+    );
+  }
+}
+
+class Label extends Component {
+  render() {
+    const labelStyle = {
+      fontWeight: 'bold',
+      fontFamily: 'sans-serif',
+      textAlign: 'center',
+      fontSize: 34,
+      padding: 20,
+    }
+    return (
+      <p style={labelStyle}>{this.props.bckColor}</p>
     );
   }
 }
