@@ -4,7 +4,7 @@ import { Grid, ButtonToolbar } from 'react-bootstrap';
 
 class App extends Component {
   state = {
-    bck: 'rgb(220,220,220)',
+    bck: '#d3d3d3',
   };
 
   handleColor = (color) => {
@@ -45,13 +45,20 @@ class ButtonList extends Component {
   }
 
   generateColor = () => {
-    const hue = 'rgb(' + this.getRandom() + ',' + this.getRandom() + ',' + this.getRandom() + ')';
-    return hue;
+    const red = this.getHexColor();
+    const green = this.getHexColor();
+    const blue = this.getHexColor();
+
+    return '#'+red+green+blue;
   }
 
-  getRandom = () => (
-    Math.floor(Math.random() * 256)
-  ) 
+  getHexColor = () => {
+    const rand = Math.floor(Math.random() * 256).toString(16);
+    if (rand.length < 2) {
+      return '0' + rand;
+    }
+    return rand;
+  }
 
   state = {
     colors: [
