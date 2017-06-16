@@ -100,8 +100,8 @@ class Display extends Component {
     }
     return (
       <div style={displayStyle}>
-        <DisplayColor bckColor={this.props.bckColor}/>
-        <Label bckColor={this.props.bckColor}/>
+        <DisplayColor {...this.props}/>
+        <Label {...this.props}/>
       </div>
     );
   }
